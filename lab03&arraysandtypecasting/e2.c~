@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int smallest(const int A[], int n)
+{
+  int i = 0;
+  int sm = 0;
+  int number = 
+  while (i < n)
+  {
+    if (A[i] < number){
+      sm = i;
+      number = A[i];
+      i++;
+    }
+    else{
+      i++;
+    }
+  }
+  return(sm);
+}
+
+int main()
+{
+  int A[] = {45, 24, 65, 10, 8, 50};
+
+  int n = 6;
+  int q = smallest(A , n);
+  printf("%d is smallest \n", q);
+}

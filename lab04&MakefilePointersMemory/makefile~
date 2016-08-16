@@ -1,0 +1,8 @@
+prog : main.o func.o
+	g++ -c -o prog main.o func.o
+
+main.o : main.c func.h
+	g++ -c -o main.c
+
+func.o : func.c func.h
+	g++ -c -o func.c

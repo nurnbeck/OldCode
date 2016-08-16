@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include "func.h"
+#include <string.h>
+#include <assert.h>
+
+int indexOfMax( char *A[], int N)
+{
+  assert(N > 0);  
+  int max_ind = 0;    // current index of max.
+  const char *max_val = A[0]; // current maximum value
+
+  for (int i=1; i < N; ++i) {
+    // can't use A[i] > max_val because this
+    // would compare addresses!
+    // instead, need to use strcmp to compare strings
+    if (strcmp(A[i], max_val) > 0) {
+      // found a bigger element, so update max_val and max_ind
+      max_val = A[i]; max_ind = i;
+    }
+  }
+  return max_ind;
+}
+
+void swap(char * & x, char * & y)
+{
+  char *tmp = x; 
+  x = y; 
+  y = tmp;
+}
+
+void sort(char *A[], int N)
+{
+  for (int l=N; l > 1; --l) {
+    // swap max. element in A[0..l-1] with A[l-1]
+    swap( A[ indexOfMax( A, l ) ], A[ l-1 ] );
+  }
+}
