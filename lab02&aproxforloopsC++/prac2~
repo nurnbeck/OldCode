@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+   float num = 4;
+   int count = 0;
+   float i = 0;
+   int i = 0;
+   while (i != i+1){
+   temp =(((4/((8*i)+1)))-(2/((8*i)+4))-(1/((8*i)+5))-(1/((8*i)+6)))*(1/16)
+   
+   }
+}
