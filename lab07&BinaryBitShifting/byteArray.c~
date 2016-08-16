@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include "byteArray.h"
+
+// Prints all elements in the array A in hexadecimal.
+// A[0] stores the highest-ordered bits.
+// As with the practice question, each byte's hex
+// value should be printed as two characters - meaning
+// that leading 0s should be printed.  
+void array_print_hex( const byte *A, int n ){
+
+}
+
+
+
+
+// Prints all elements in the array A in binary.
+// Print from the highest-order bits to the lowest-order bits.
+// A[0] stores the highest-order bits.
+void array_print_binary( const byte *A, int n ){
+
+}
+
+
+
+// Count the number of 1-bits (bits in array A that are 1).
+int array_count_ones( const byte *A, int n ){
+
+  return 0;
+}
+
+
+
+
+//Performs "bit-wise and" operation on array X and array Y
+void array_and( byte *A, const byte *X, const byte *Y, int n ){
+  
+}
+
+
+//Rotates array A bit-wise to the right.
+//Note that this is not simply a bit-shift.
+void array_rotate_right( byte *A, int n ){
+
+}

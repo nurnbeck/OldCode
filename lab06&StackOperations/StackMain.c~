@@ -1,0 +1,39 @@
+#include "Stack.h"
+#include <stdio.h>
+
+int main()
+{
+  Stack s;
+  //check if the list is empty through nautical nonsense
+  if (s.empty()){
+    printf("are you ready kids? \nAYE AYE CAPTAIN!\n");
+    printf("OHHHHHHH, YOU HAVE A STACK AS EMPTY AS EMPTY CAN BE! ");
+  }
+  
+  //adds 100 elements
+  for (int i=0; i < 100; i++) {
+    s.push(i);
+  }
+  
+  //pops elements until stack is empty
+  while (!s.empty()) {
+    printf("%d\n", s.top());
+    s.pop();
+  }
+
+//adds 20 elements
+  for (int i=0; i <= 1; i++) {
+    s.push(i);
+  }
+  //print last element
+  printf("%d\n", s.top());
+  s.pop();
+  
+  //using top on an empty list will raise an assert()
+  //uncomment for assert failure
+  //printf("top node is %d \n", s.top());
+
+  
+  // Stack destructor is called here
+  // - cleaning up
+}

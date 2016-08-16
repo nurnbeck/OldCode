@@ -1,0 +1,22 @@
+TARGET= str
+MODULES= main.o string.o
+#uncomment for UNIX code.
+CCOPTS := -Wall -Wextra -Wconversion -O
+CC := g++ -DUNIX
+
+# uncomment for windows code.
+#CCOPTS := -Wall -Wextra -Wconversion -O
+#CC := g++ -DWINDOWS
+
+$(TARGET):$(MODULES)
+	$(CC) $(CCOPTS) -o $(TARGET) $(MODULES)
+
+main.o : main.c string.c
+	$(CC) $(CCOPTS) -c main.c
+
+
+string.o : string.c
+	$(CC) $(CCOPTS) -c string.c
+
+clean:
+	/bin/rm -f *-o* -$(TARGET)

@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include "byteArray.h"
+
+
+int main()
+{
+
+  // example test cases
+  printf("===\n");
+  byte A[] = {100, 101};
+  printf("Array in hex:\n");
+  array_print_hex(A,2);  // should be 64 65
+  printf("\n");
+
+  printf("===\n");
+  A[0] = 100; A[1]=  102;
+  printf("Array in binary:\n");
+  array_print_binary(A,2);  // should be 01100100 01100110
+  printf("\n");
+
+  printf("===\n");
+  int count = array_count_ones(A,2);
+  printf("The number of 1-bits in Array is: %d\n", count); // should be 7
+
+  printf("===\n");
+  byte X[] = {100, 102};
+  byte Y[] = {120, 130};
+  array_and(A, X, Y, 2);
+  printf("X is   :");
+  array_print_binary(X,2);
+  printf("\n");
+  printf("Y is   :");
+  array_print_binary(Y,2);
+  printf("\n");
+  printf("X&Y is :");
+  array_print_binary(A,2); // should be 01100000 00000010
+  printf("\n");
+
+  printf("===\n");
+  byte B[] = {100, 101, 102};
+  printf("Array is: " );
+  array_print_binary(B,3);
+  printf("\n");
+  printf("Rotated : " );
+  array_rotate_right( B ,3 );
+  array_print_binary(B,3);
+  printf("\n");
+
+  // additional test cases:
+  
+  
+  return 0;
+}

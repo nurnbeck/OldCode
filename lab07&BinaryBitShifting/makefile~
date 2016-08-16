@@ -1,0 +1,22 @@
+CC := g++
+WARN := -Wall -Wextra -Wconversion
+
+# -DNDEBUG disables assert
+#CCOPTS := $(WARN) -O -DNDEBUG
+
+# assert is enabled
+CCOPTS := $(WARN) -O
+
+
+byteArray: byteArray.o byteMain.o
+	$(CC) 
+
+byteArray.o: byteArray.c byteArray.h
+	$(CC) $(CCOPTS) 
+
+byteMain.o: byteMain.c byteArray.h
+	$(CC) $(CCOPTS) 
+
+clean:
+	rm -rf *.o byteArray
+
