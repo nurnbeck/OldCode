@@ -1,0 +1,55 @@
+#include <iostream>
+#include <assert.h>
+#include <algorithm>
+using namespace std;
+template <typename T>
+T dot_product(T *A, T *B)
+{
+  T Q;
+  int i = 0;
+  while(A[i])
+  {
+    Q = A[i] + B[i];
+  }
+  
+  return Q;
+}
+template <typename T>
+void array_sum( T *S,const T *A,const T *B,const int n)
+{
+  int i = 0;
+  while (i<n){
+    S[i] = A[i] + B[i];
+  }
+}
+template <typename T>
+void array_print(T *A)
+{
+  int i = 0;
+  while(A[i])
+  {
+    cout << A[i] << " ";
+  }
+  cout << endl;
+}
+  
+int main()
+{
+  int *A = new int[11];
+  int *B = new int[11];
+  int *S = new int[11];
+  int n = 11;
+  for(int i = 0; i = 11; i++)
+  {
+    A[i] = 2;
+    B[i] = 3;
+  }
+  array_print(A);
+  array_print(B);
+  array_print(S);
+  dot_product(A,B);
+  array_sum(S,A,B,n);
+    
+  
+  return 1;
+}
