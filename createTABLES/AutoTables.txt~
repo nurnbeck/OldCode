@@ -1,0 +1,147 @@
+//Nolan Beck
+//CMPUT 291
+//LEC SEC A1
+//LAB SEC H04
+//Assignment #1
+
+
+DROP TABLE People;
+DROP TABLE Licensed;
+DROP TABLE VehicleType;
+DROP TABLE Vehicle;
+DROP TABLE DrivingCondition;
+DROP TABLE Licensed;
+DROP TABLE Restriction;
+DROP TABLE Owner;
+DROP TABLE Transaction;
+DROP TABLE TicketType;
+DROP TABLE Ticket;
+DROP TABLE Violation;
+
+
+CREATE TABLE People (
+  SIN 		CHAR(20),
+  LicenseNumber CHAR(20),
+  Name		VARCHAR(40),
+  Address	VARCHAR(50),
+  Gender	CHAR,
+  Weight  	number(5,2),
+  Height 	number(5,2),
+  EyeColour	VARCHAR(10),
+  HairColour	VARCHAR(10),
+  DateofBirth	DATE,
+  PRIMARY KEY (SIN)
+  CHECK (Gender IN ('m','f'))	
+);
+
+CREATE TABLE Licensed (
+  LicenseNumber CHAR(20),
+  Class 	VARCHAR(15),
+  photo		IMAGE,
+  IssueDate 	DATE.
+  ExpireDate 	DATE,
+  PRIMARY KEY 	(LicenseNumber)
+  FOREIGN KEY 	(licenseNumber) REFERENCES People
+	ON DELETE CASCADEViolation
+);
+
+CREATE TABLE VehicleType(
+  TypeID 	CHAR(20),Transaction
+  Type		CHAR(20),
+  PRIMARY KEY(TypeID)
+);
+
+CREATE TABLE Vehicle (
+  SerialNumber 	CHAR(25),
+  Colour	VARCHAR(10),
+  Maker		VARCHAR(25),
+  Model 	VARCHAR(25),
+  Year 		number(4,0);
+  PRIMARY KEY (SerialNumber),
+  FOREIGN KEY (TypeID) REFERENCES VehicleType
+);
+
+CREATE TABLE DrivingCondition (
+  LicenseNumber CHAR(20),
+  Description 	VARCHAR(2000),
+  PRIMARY KEY (LicenseNumber),
+  FOREIGN KEY (LicenseNumber) REFERENCES People
+);
+
+
+CREATE TABLE Licensed (
+  LicenseNumber	Char(20),
+  Class		VARCHAR(15),
+  ExpireDate	DATE,
+  IssueDate	DATE,
+  PRIMARY KEY (LicenseNumber),
+  FOREIGN KEY (SIN) REFERENCES People
+	ON DELETE CASCADE
+);
+
+CREATE TABLE Restriction(
+  licenseNumber CHAR(20),
+  RestID	INTEGER,
+  PRIMARY KEY (LicenseNumber,RestID),
+  FOREIGN KEY (LicenseNumber) REFERENCES People,
+  FOREIGN KEY (RestID) REFERENCES DrivingCondition
+);
+		
+		
+CREATE TABLE Owner (
+  SIN 		CHAR(20),
+  Name 		VARCHAR(50),
+  SerialNumber 	CHAR(25),
+  TransDate	DATE,
+  Price		number(10,2),
+  PrimaryOwner 	CHAR,
+  PRIMARY KEY(SIN,SerialNumTicketber),
+  FOREIGN KEY(SIN) REFERENCES people ,
+  FOREIGN KEY(SerialNumber) REFERENCES Vehicle,
+  CHECK (PrimaryOwner IN ('y','n'))
+);
+Violation
+CREATE TABLE Transaction(
+  BuyerSIN 	CHAR(20),
+  SellerSIN 	CHAR(50),
+  SerialNumber	CHAR(25),
+  TransDate	DATE,
+  Price		number(10,2),
+  PrimaryOwner 	CHAR,
+  PRIMARY KEY(BuyerSIN,SellerSIN,SerialNumber),
+  FOREIGN KEY(BuyerSIN) REFERENCES People,
+  FOREIGN KEY(SellerSIN) REFERENCES People,
+  FOREIGN KEY(SerialNumber) REFERENCES Vehicle
+);
+
+CREATE TABLE TicketType(
+  ViolationType VARCHAR(15),
+  Fine 		number(10,2),
+  PRIMARY KEY(ViolationType)
+);
+
+CREATE TABLE Ticket(
+  TicketNumber 	CHAR(20),
+  ViolationType	VARCHAR(15),
+  Location  	VARCHAR(40),
+  ViolationDate DATE,
+  Descriptions	VARCHAR(2000),
+  PRIMARY KEY(TicketNumber),
+  FOREIGN KEY(ViolationType) REFERENCES TicketType
+);
+
+CREATE TABLE Violation(
+  VehicleSerial	CHAR(25),
+  ViolatorSIN	CHAR(20),
+  TicketNumber	CHAR(20),
+  OfficerSIN    CHAR(20),
+  PRIMARY KEY(VehicleSerial,ViolatorSIN,TicketNumber),
+  FOREIGN KEY(VehicleSerial) REFERENCES Vehicle,
+  FOREIGN KEY(ViolatorSIN) REFERENCES People,
+  FOREIGN KEY(TicketNumber) REFERENCES Ticket,
+);
+
+
+
+
+

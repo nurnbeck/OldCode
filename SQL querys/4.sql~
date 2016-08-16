@@ -1,0 +1,4 @@
+prompt Question 4 - nbeck
+SELECT name
+FROM people p, ticket t, ticket_type tv
+WHERE ( t.violator_no in

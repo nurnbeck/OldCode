@@ -1,0 +1,7 @@
+prompt Question 1 - nbeck
+SELECT serial_no
+FROM owner o, people p, vehicle v
+WHERE ( o.owner_id = p.sin and
+	p.addr NOT LIKE '%Edmonton%' and
+	v.serial_no=o.owner_id)
+;

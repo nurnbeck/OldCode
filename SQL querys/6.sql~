@@ -1,0 +1,14 @@
+prompt Question 6 - nbeck
+SELECT name
+FROM people p
+/*
+minus
+SELECT name, model, maker
+FROM people p, vehicle v, owner o
+GROUP BY name, model, maker
+HAVING COUNT(*) >= ALL( SELECT COUNT(*)
+			FROM vehicle v2, owner o2
+			WHERE v.model = v2.model and
+				v.maker = v2.maker
+			GROUP BY v2.maker,v2.model
+			);*/

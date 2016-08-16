@@ -1,0 +1,22 @@
+SELECT AVG(price)
+FROM auto_sale a
+/*FROM auto_sale a
+WHERE (a.s_date LIKE '%2010')
+GROUP BY a.s_date
+UNION
+SELECT AVG(price)
+FROM auto_sale a
+WHERE (a.s_date LIKE '%2011')
+GROUP BY a.s_date
+UNION
+SELECT AVG(price)
+FROM auto_sale a
+WHERE (a.s_date LIKE '%2012')
+GROUP BY a.s_date
+UNION
+SELECT AVG(price)
+FROM auto_sale a
+WHERE (a.s_date LIKE '%2013')
+i do not understand how dates work*/
+GROUP BY a.s_date
+;

@@ -1,0 +1,15 @@
+prompt Question 2 - nbeck
+SELECT DISTINCT name, addr
+FROM vehicle v1, vehicle v2,vehicle v3, owner o, owner o2, owner o3, people p
+WHERE ( v1.serial_no = o.vehicle_id and 
+	v2.serial_no = o2.vehicle_id and
+	v3.serial_no = o3.vehicle_id and
+	o2.owner_id = o.owner_id and
+	o3.owner_id = o2.owner_id and
+	o3.owner_id = o.owner_id and
+	v1.serial_no <> v2.serial_no and
+	v2.serial_no <> v3.serial_no and
+	v3.serial_no <> v1.serial_no and
+	o.owner_id = p.sin and
+	v1.model = 'SUV' and
+	v1.model = v2.model);

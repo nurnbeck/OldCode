@@ -1,0 +1,10 @@
+prompt Question 8 - nbeck
+SELECT v.serial_no as vehicle_no, COUNT(DISTINCT auto_sale.transaction_id) AS number_sales , ROUND(AVG(auto_sale.price),2) AS average_price, COUNT(DISTINCT ticket.ticket_no) AS total_tickets 
+FROM vehicle v
+JOIN auto_sale
+ON v.serial_no = auto_sale.vehicle_id
+LEFT JOIN TICKET
+ON v.Serial_no = ticket.vehicle_id
+GROUP BY v.serial_no
+ORDER BY v.serial_no;
+

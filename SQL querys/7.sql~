@@ -1,0 +1,10 @@
+SELECT DISTINCT p.sin, p.name, p.addr
+FROM people p,people p2, people p3, ticket t, ticket t2, ticket t3
+WHERE ( t.vtype <> 'parking' and
+	t.violator_no = p.sin and
+	t.violator_no = t2.violator_no and
+	t2.violator_no = t3.violator_no and
+	t3.violator_no = t.violator_no and
+	t.ticket_no <> t2.ticket_no and
+	t2.ticket_no <> t3.ticket_no and
+	t3.ticket_no <> t.ticket_no);

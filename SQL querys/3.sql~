@@ -1,0 +1,6 @@
+prompt Question 3 - nbeck
+SELECT DISTINCT name licence_no
+FROM vehicle v, people p, owner o, drive_licence d
+WHERE ( v.serial_no = o.vehicle_id and 
+	o.owner_id = p.sin and
+	v.color <> 'red');

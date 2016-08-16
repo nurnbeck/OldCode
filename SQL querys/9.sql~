@@ -1,0 +1,5 @@
+prompt Question 9 - nbeck
+SELECT sin, name
+FROM people, auto_sale a, vehicle v, owner o, ticket 
+/*
+WHERE MAX(a.price) and AVG(a.price)  MAX(COUNT(*));*/
